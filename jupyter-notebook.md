@@ -1,14 +1,28 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Autoreload](#autoreload)
+- [Display all results](#display-all-results)
+- [`nbextensions`](#nbextensions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ### Autoreload
 ```
 %reload_ext autoreload
 %autoreload 2
 ```
 
+---
+
 ### Display all results
 ```python
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
 ```
+
+---
 
 ### `nbextensions`
 https://stackoverflow.com/questions/33159518/collapse-cell-in-jupyter
