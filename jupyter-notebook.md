@@ -8,6 +8,8 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+---
+
 ### Autoreload
 ```
 %reload_ext autoreload
@@ -26,10 +28,12 @@ InteractiveShell.ast_node_interactivity = "all"
 
 ### `nbextensions`
 https://stackoverflow.com/questions/33159518/collapse-cell-in-jupyter
+
 Install `nbextensions`
 ```sh
 $ pip install jupyter_contrib_nbextensions
 $ jupyter contrib nbextension install --user
+
 ```
 Install `configurator`
 ```sh
