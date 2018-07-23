@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Autoreload](#autoreload)
 - [Display all results](#display-all-results)
@@ -12,7 +11,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
----
 
 ### Autoreload
 
@@ -41,7 +39,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 ```
 
-### Edit config file at `~/.ipython/profile_default/ipython_config.py`
+#### Edit config file at `~/.ipython/profile_default/ipython_config.py`
 
 ```
 c = get_config()
@@ -67,3 +65,4 @@ Install `configurator`
 $ pip install jupyter_nbextensions_configurator
 $ jupyter nbextensions_configurator enable --user
 ```
+
