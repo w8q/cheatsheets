@@ -75,7 +75,7 @@ $ jupyter nbextensions_configurator enable --user
 
 #### For the entire notebook
 https://pandas.pydata.org/pandas-docs/stable/options.html
-```
+```python
 import pandas as pd
 pd.set_option('max_colwidth', 800)
 pd.options.display.max_rows = None      # no limit
@@ -93,7 +93,7 @@ with pd.option_context('display.max_rows', 100,
                        'display.max_columns', 3):
     print(df)
 ```
-
+```sh
          0  ...    29
     0   728 ...   479
     1   404 ...   236
@@ -117,4 +117,4 @@ with pd.option_context('display.max_rows', 100,
     19   39 ...   103
 
     [20 rows x 30 columns]
-
+```
