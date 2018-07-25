@@ -8,6 +8,56 @@
 
 ---
 
+### Setting options
+
+#### For the entire session
+https://pandas.pydata.org/pandas-docs/stable/options.html
+```python
+import pandas as pd
+pd.set_option('max_colwidth', 800)
+pd.options.display.max_rows = None      # no limit
+```
+
+#### Using context
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.html
+```python
+import numpy as np
+import pandas as pd
+
+nrow, ncol = 20, 30
+df = pd.DataFrame(np.random.randint(1, 1000, nrow*ncol).reshape(nrow, ncol))
+with pd.option_context('display.max_rows', 100,
+                       'display.max_columns', 3):
+    print(df)
+```
+```sh
+     0  ...    29
+0   728 ...   479
+1   404 ...   236
+2   195 ...   638
+3   555 ...   333
+4   732 ...   161
+5   429 ...   670
+6   289 ...   783
+7   687 ...   777
+8   273 ...   967
+9   921 ...   907
+10  625 ...   539
+11  890 ...   591
+12  107 ...   167
+13  818 ...   558
+14  787 ...   311
+15   85 ...   149
+16  653 ...   402
+17  266 ...   422
+18  760 ...   502
+19   39 ...   103
+
+[20 rows x 30 columns]
+```
+
+---
+
 ### `groupby` without aggregation
 
 ```python
