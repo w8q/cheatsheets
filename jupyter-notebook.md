@@ -1,21 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Autoreload](#autoreload)
-- [Display all results](#display-all-results)
-- [`matplotlib`](#matplotlib)
-  - [`import` method](#import-method)
-  - [Edit config file at `~/.ipython/profile_default/ipython_config.py`](#edit-config-file-at-ipythonprofile_defaultipython_configpy)
-- [`nbextensions`](#nbextensions)
-- [Setting DataFrame options](#setting-dataframe-options)
-  - [For the entire notebook](#for-the-entire-notebook)
-  - [Using context](#using-context)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
----
-
 ### Autoreload
 
 ```python
