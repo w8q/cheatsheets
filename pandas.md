@@ -93,6 +93,8 @@ Name: 3, dtype: object
 
 ---
 
+### Simple `merge`
+
 ```python
 d1 = dict(a=[1,2,3,4,5,6], b=list('abcdef'))
 d2 = dict(a=[1,2,5,7,8,9], c=[True, False, True, True, True, False])
