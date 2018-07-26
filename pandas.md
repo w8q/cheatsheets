@@ -98,402 +98,74 @@ d1 = dict(a=[1,2,3,4,5,6], b=list('abcdef'))
 d2 = dict(a=[1,2,5,7,8,9], c=[True, False, True, True, True, False])
 df1 = pd.DataFrame(d1)
 df2 = pd.DataFrame(d2)
-df1
-df2
+print(df1)
+print(df2)
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>a</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>b</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>c</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>d</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>e</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>f</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>c</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>9</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       a  b
+    0  1  a
+    1  2  b
+    2  3  c
+    3  4  d
+    4  5  e
+    5  6  f
+       a      c
+    0  1   True
+    1  2  False
+    2  5   True
+    3  7   True
+    4  8   True
+    5  9  False
 
 
 ```python
-pd.merge(df1, df2, on='a', how='left')
+print(pd.merge(df1, df2, on='a', how='left'))
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>a</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>b</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>c</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>d</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>e</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>f</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       a  b      c
+    0  1  a   True
+    1  2  b  False
+    2  3  c    NaN
+    3  4  d    NaN
+    4  5  e   True
+    5  6  f    NaN
 
 
 ```python
-pd.merge(df1, df2, on='a', how='right')
+print(pd.merge(df1, df2, on='a', how='right'))
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>a</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>b</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5</td>
-      <td>e</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7</td>
-      <td>NaN</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8</td>
-      <td>NaN</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>9</td>
-      <td>NaN</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       a    b      c
+    0  1    a   True
+    1  2    b  False
+    2  5    e   True
+    3  7  NaN   True
+    4  8  NaN   True
+    5  9  NaN  False
 
 
 ```python
-pd.merge(df1, df2, on='a', how='inner')
+print(pd.merge(df1, df2, on='a', how='inner'))
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>a</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>b</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5</td>
-      <td>e</td>
-      <td>True</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       a  b      c
+    0  1  a   True
+    1  2  b  False
+    2  5  e   True
 
 
 ```python
-pd.merge(df1, df2, on='a', how='outer')
+print(pd.merge(df1, df2, on='a', how='outer'))
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>a</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>b</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>c</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>d</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>e</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>f</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>NaN</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>NaN</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>NaN</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       a    b      c
+    0  1    a   True
+    1  2    b  False
+    2  3    c    NaN
+    3  4    d    NaN
+    4  5    e   True
+    5  6    f    NaN
+    6  7  NaN   True
+    7  8  NaN   True
+    8  9  NaN  False
 
