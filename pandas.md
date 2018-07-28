@@ -124,6 +124,8 @@ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.htm
     5  9  False
 
 
+- `left` join
+
 ```python
 >>> print(pd.merge(df1, df2, on='a', how='left'))
 ```
@@ -136,6 +138,8 @@ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.htm
     4  5  e   True
     5  6  f    NaN
 
+
+- `right` join
 
 ```python
 >>> print(pd.merge(df1, df2, on='a', how='right'))
@@ -150,6 +154,8 @@ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.htm
     5  9  NaN  False
 
 
+- `inner` join
+
 ```python
 >>> print(pd.merge(df1, df2, on='a', how='inner'))
 ```
@@ -159,6 +165,8 @@ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.htm
     1  2  b  False
     2  5  e   True
 
+
+- `outer` join
 
 ```python
 >>> print(pd.merge(df1, df2, on='a', how='outer'))
