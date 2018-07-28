@@ -174,3 +174,110 @@ https://pandas.pydata.org/pandas-docs/stable/generated/pandas.option_context.htm
     7  8  NaN   True
     8  9  NaN  False
 
+---
+
+### One-hot and Label Encoding
+
+- Dataframe setup
+
+```python
+>>> import numpy as np
+>>> import pandas as pd
+
+>>> nrow, ncol = 12, 5
+>>> df = pd.DataFrame(np.random.randint(1, 1000, nrow*ncol).reshape(nrow, ncol))
+
+>>> categories = pd.Series(np.random.choice(list('abc'), nrow), name='Cat')
+
+>>> df = pd.concat([df, categories], axis=1)
+>>> print(df)
+```
+
+          0    1    2    3    4 Cat
+    0   420  805  857  731  883   b
+    1   157   36  892  780  749   a
+    2   377  501  333  999  549   a
+    3   846  899  636   33  236   a
+    4   619  760  710  732  528   c
+    5   593  885   40  460  582   b
+    6   187  740  996  919  723   a
+    7   320  844  246  903  500   a
+    8   132  446  607   67  415   a
+    9    18  466  975  378  730   a
+    10  507  105  784  636  286   c
+    11  265  307  483  360  467   c
+
+
+#### Label Encode using `pd.factorize()`
+
+- https://pandas.pydata.org/pandas-docs/stable/generated/pandas.factorize.html
+
+```python
+>>> labels, uniques = pd.factorize(df['Cat'])
+
+>>> labels
+array([0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 2, 2])
+
+>>> uniques
+Index(['b', 'a', 'c'], dtype='object')
+
+>>> uniques.take(labels)
+Index(['b', 'a', 'a', 'a', 'c', 'b', 'a', 'a', 'a', 'a', 'c', 'c'], dtype='object')
+
+>>> df['Cat'].values
+array(['b', 'a', 'a', 'a', 'c', 'b', 'a', 'a', 'a', 'a', 'c', 'c'],
+      dtype=object)
+
+>>> pd.concat([df, pd.Series(labels, name='Cat_label')], axis=1)
+          0    1    2    3    4 Cat  Cat_label
+    0   420  805  857  731  883   b          0
+    1   157   36  892  780  749   a          1
+    2   377  501  333  999  549   a          1
+    3   846  899  636   33  236   a          1
+    4   619  760  710  732  528   c          2
+    5   593  885   40  460  582   b          0
+    6   187  740  996  919  723   a          1
+    7   320  844  246  903  500   a          1
+    8   132  446  607   67  415   a          1
+    9    18  466  975  378  730   a          1
+    10  507  105  784  636  286   c          2
+    11  265  307  483  360  467   c          2
+```
+
+#### One-hot encode using `pd.get_dummies()`
+
+- https://pandas.pydata.org/pandas-docs/stable/generated/pandas.get_dummies.html
+
+```python
+>>> oh_cat = pd.get_dummies(df['Cat'], prefix='Cat')
+
+>>> oh_cat
+    Cat_a  Cat_b  Cat_c
+0       0      1      0
+1       0      0      1
+2       1      0      0
+3       1      0      0
+4       0      0      1
+5       1      0      0
+6       1      0      0
+7       1      0      0
+8       0      0      1
+9       0      1      0
+10      0      1      0
+11      1      0      0
+
+>>> pd.concat([df, oh_cat], axis=1)
+      0    1    2    3    4 Cat  Cat_a  Cat_b  Cat_c
+0   243  664   99   79  389   b      0      1      0
+1   927  680  768  256  702   c      0      0      1
+2   705   30  148  840  262   a      1      0      0
+3   653  677  930  531  389   a      1      0      0
+4   239  730  561  303    8   c      0      0      1
+5    57  130  953  302  758   a      1      0      0
+6   355  635   10  776  658   a      1      0      0
+7   981  317  230  832  309   a      1      0      0
+8    45  124  508  109  710   c      0      0      1
+9   875  820  134  775  269   b      0      1      0
+10  248  860  867  690  438   b      0      1      0
+11   15  342  913  631  128   a      1      0      0
+```
