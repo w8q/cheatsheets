@@ -289,3 +289,54 @@ array(['b', 'a', 'a', 'a', 'c', 'b', 'a', 'a', 'a', 'a', 'c', 'c'],
 10  248  860  867  690  438   b      0      1      0
 11   15  342  913  631  128   a      1      0      0
 ```
+
+---
+
+### `groupby('col').count()` vs `grouby('col').size()`
+
+`size` includes `NaN` values, `count` does not. See [stackoverflow](https://stackoverflow.com/a/33346694).
+
+```python
+>>> import numpy as np
+>>> import pandas as pd
+
+>>> nrow, ncol = 20, 2
+>>> df = pd.DataFrame(np.random.randint(1, 5, nrow*ncol).astype('uint32').reshape(nrow, ncol))
+>>> df.iloc[2:5,0] = np.nan
+>>> print(df)
+      0  1
+0   1.0  2
+1   3.0  3
+2   NaN  3
+3   NaN  1
+4   NaN  1
+5   2.0  2
+6   1.0  2
+7   1.0  1
+8   4.0  3
+9   4.0  3
+10  2.0  2
+11  4.0  4
+12  1.0  3
+13  1.0  4
+14  3.0  3
+15  3.0  3
+16  1.0  2
+17  4.0  3
+18  2.0  4
+19  4.0  2
+>>> print(df.groupby(1).count())
+   0
+1
+1  1
+2  6
+3  7
+4  3
+>>> print(df.groupby(1).size())
+1
+1    3
+2    6
+3    8
+4    3
+dtype: int64
+```
